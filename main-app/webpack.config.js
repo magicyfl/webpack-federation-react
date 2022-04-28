@@ -36,7 +36,6 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'main_app',
       remotes: { // 作为主机使用那些远端
-        'component-app': 'component_app@http://localhost:3001/remoteEntry.js',
         'pwm-client': 'pwm_client@http://localhost:3003/remoteEntry.js',
         'sdp-client': 'sdp_client@http://localhost:3004/remoteEntry.js',
       },

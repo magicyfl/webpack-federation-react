@@ -1,4 +1,4 @@
 {
-  "packages": ["lib-app", "component-app", "main-app", "pwm-client", "sdp-client"],
+  "packages": ["main-app", "pwm-client", "sdp-client"],
   "version": "0.0.0"
 }
