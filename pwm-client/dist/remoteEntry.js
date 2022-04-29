@@ -1,7 +1,29 @@
 var pwm_client;
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({});
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = ReactDOM;
+
+/***/ })
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -15,13 +37,16 @@ var pwm_client;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -31,6 +56,18 @@ var pwm_client;
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -63,6 +100,18 @@ var pwm_client;
 /******/ 			// return url for filenames based on template
 /******/ 			return "" + chunkId + ".js";
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -127,96 +176,12 @@ var pwm_client;
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/remotes loading */
+/******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
-/******/ 		var chunkMapping = {};
-/******/ 		var idToExternalAndNameMapping = {};
-/******/ 		__webpack_require__.f.remotes = (chunkId, promises) => {
-/******/ 			if(__webpack_require__.o(chunkMapping, chunkId)) {
-/******/ 				chunkMapping[chunkId].forEach((id) => {
-/******/ 					var getScope = __webpack_require__.R;
-/******/ 					if(!getScope) getScope = [];
-/******/ 					var data = idToExternalAndNameMapping[id];
-/******/ 					if(getScope.indexOf(data) >= 0) return;
-/******/ 					getScope.push(data);
-/******/ 					if(data.p) return promises.push(data.p);
-/******/ 					var onError = (error) => {
-/******/ 						if(!error) error = new Error("Container missing");
-/******/ 						if(typeof error.message === "string")
-/******/ 							error.message += '\nwhile loading "' + data[1] + '" from ' + data[2];
-/******/ 						__webpack_modules__[id] = () => {
-/******/ 							throw error;
-/******/ 						}
-/******/ 						data.p = 0;
-/******/ 					};
-/******/ 					var handleFunction = (fn, arg1, arg2, d, next, first) => {
-/******/ 						try {
-/******/ 							var promise = fn(arg1, arg2);
-/******/ 							if(promise && promise.then) {
-/******/ 								var p = promise.then((result) => (next(result, d)), onError);
-/******/ 								if(first) promises.push(data.p = p); else return p;
-/******/ 							} else {
-/******/ 								return next(promise, d, first);
-/******/ 							}
-/******/ 						} catch(error) {
-/******/ 							onError(error);
-/******/ 						}
-/******/ 					}
-/******/ 					var onExternal = (external, _, first) => (external ? handleFunction(__webpack_require__.I, data[0], 0, external, onInitialized, first) : onError());
-/******/ 					var onInitialized = (_, external, first) => (handleFunction(external.get, data[1], getScope, 0, onFactory, first));
-/******/ 					var onFactory = (factory) => {
-/******/ 						data.p = 1;
-/******/ 						__webpack_modules__[id] = (module) => {
-/******/ 							module.exports = factory();
-/******/ 						}
-/******/ 					};
-/******/ 					handleFunction(__webpack_require__, data[2], 0, 0, onExternal, 1);
-/******/ 				});
-/******/ 			}
-/******/ 		}
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/sharing */
-/******/ 	(() => {
-/******/ 		__webpack_require__.S = {};
-/******/ 		var initPromises = {};
-/******/ 		var initTokens = {};
-/******/ 		__webpack_require__.I = (name, initScope) => {
-/******/ 			if(!initScope) initScope = [];
-/******/ 			// handling circular init calls
-/******/ 			var initToken = initTokens[name];
-/******/ 			if(!initToken) initToken = initTokens[name] = {};
-/******/ 			if(initScope.indexOf(initToken) >= 0) return;
-/******/ 			initScope.push(initToken);
-/******/ 			// only runs once
-/******/ 			if(initPromises[name]) return initPromises[name];
-/******/ 			// creates a new share scope if needed
-/******/ 			if(!__webpack_require__.o(__webpack_require__.S, name)) __webpack_require__.S[name] = {};
-/******/ 			// runs all init snippets from all modules reachable
-/******/ 			var scope = __webpack_require__.S[name];
-/******/ 			var warn = (msg) => (typeof console !== "undefined" && console.warn && console.warn(msg));
-/******/ 			var uniqueName = "pwm-client";
-/******/ 			var register = (name, version, factory, eager) => {
-/******/ 				var versions = scope[name] = scope[name] || {};
-/******/ 				var activeVersion = versions[version];
-/******/ 				if(!activeVersion || (!activeVersion.loaded && (!eager != !activeVersion.eager ? eager : uniqueName > activeVersion.from))) versions[version] = { get: factory, from: uniqueName, eager: !!eager };
-/******/ 			};
-/******/ 			var initExternal = (id) => {
-/******/ 				var handleError = (err) => (warn("Initialization of sharing external failed: " + err));
-/******/ 				try {
-/******/ 					var module = __webpack_require__(id);
-/******/ 					if(!module) return;
-/******/ 					var initFn = (module) => (module && module.init && module.init(__webpack_require__.S[name], initScope))
-/******/ 					if(module.then) return promises.push(module.then(initFn, handleError));
-/******/ 					var initResult = initFn(module);
-/******/ 					if(initResult && initResult.then) return promises.push(initResult['catch'](handleError));
-/******/ 				} catch(err) { handleError(err); }
-/******/ 			}
-/******/ 			var promises = [];
-/******/ 			switch(name) {
-/******/ 			}
-/******/ 			if(!promises.length) return initPromises[name] = 1;
-/******/ 			return initPromises[name] = Promise.all(promises).then(() => (initPromises[name] = 1));
+/******/ 		__webpack_require__.nmd = (module) => {
+/******/ 			module.paths = [];
+/******/ 			if (!module.children) module.children = [];
+/******/ 			return module;
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -317,21 +282,21 @@ var pwm_client;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 var exports = __webpack_exports__;
 /*!***********************!*\
   !*** container entry ***!
   \***********************/
 var moduleMap = {
-	"./Page1": () => {
-		return Promise.all([__webpack_require__.e("vendors-node_modules_react_index_js"), __webpack_require__.e("src_Page1_jsx")]).then(() => (() => ((__webpack_require__(/*! ./src/Page1.jsx */ "./src/Page1.jsx")))));
+	"./Recent": () => {
+		return Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_form_index_js-node_modules_antd_es_input_index_js-node_mo-877505"), __webpack_require__.e("src_expose_Recent_jsx")]).then(() => (() => ((__webpack_require__(/*! ./src/expose/Recent.jsx */ "./src/expose/Recent.jsx")))));
 	},
-	"./Page2": () => {
-		return Promise.all([__webpack_require__.e("vendors-node_modules_react_index_js"), __webpack_require__.e("src_Page2_jsx")]).then(() => (() => ((__webpack_require__(/*! ./src/Page2.jsx */ "./src/Page2.jsx")))));
+	"./Devices": () => {
+		return __webpack_require__.e("src_Devices_js").then(() => (() => ((__webpack_require__(/*! ./src/Devices.js */ "./src/Devices.js")))));
 	},
-	"./Page3": () => {
-		return Promise.all([__webpack_require__.e("vendors-node_modules_react_index_js"), __webpack_require__.e("src_Page3_jsx")]).then(() => (() => ((__webpack_require__(/*! ./src/Page3.jsx */ "./src/Page3.jsx")))));
+	"./Valut": () => {
+		return __webpack_require__.e("src_Valut_js").then(() => (() => ((__webpack_require__(/*! ./src/Valut.js */ "./src/Valut.js")))));
 	}
 };
 var get = (module, getScope) => {

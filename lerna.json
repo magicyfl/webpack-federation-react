@@ -1,4 +1,0 @@
-{
-  "packages": ["main-app", "pwm-client", "sdp-client"],
-  "version": "0.0.0"
-}

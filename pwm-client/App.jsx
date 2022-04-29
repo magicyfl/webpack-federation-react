@@ -1,38 +1,42 @@
 import React from 'react';
-import Logo from './src/Logo';
-import Dialog from './src/Dialog';
-import Button from './src/Button';
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dialogVisible: false,
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.HanldeSwitchVisible = this.HanldeSwitchVisible.bind(this);
-  }
-  handleClick(ev) {
-    console.log(ev);
-    this.setState({
-      dialogVisible: true,
-    });
-  }
-  HanldeSwitchVisible(visible) {
-    this.setState({
-      dialogVisible: visible,
-    });
-  }
-  render() {
-    return (
-      <div>
-        <Logo />
-        <br />
-        <Button />
-        <br />
+import { HashRouter, Route, Routes } from 'react-router-dom' ;
+import { Provider } from 'react-redux';
+import Layout from './src/Layout';
+import Recent from './src/Recent';
+import Devices from './src/Devices';
+import Valut from './src/Valut';
+import store from './src/store';
 
-        <button onClick={this.handleClick}>click to open dialog</button>
-        <Dialog switchVisible={this.HanldeSwitchVisible} visible={this.state.dialogVisible} />
-      </div>
-    );
-  }
+function LoadCompoent(Component) {
+  return (
+    <React.Suspense fallback="loading">
+      <Component />
+    </React.Suspense>
+  )
 }
+
+function NotFound() {
+  return (
+    <div>404</div>
+  );
+}
+
+function Router() {
+  return (
+      <Provider store={store}>
+        <HashRouter>
+            <Routes>
+              <Route element={<Layout />} >
+                <Route path="/" element={<NotFound />} />
+                {/* pwm-client */}
+                <Route path="/recent" element={LoadCompoent(Recent)} />
+                <Route path="/devices" element={LoadCompoent(Devices)} />
+                <Route path="/valut" element={LoadCompoent(Valut)} />
+              </Route>
+            </Routes>
+        </HashRouter>
+      </Provider>
+  );
+}
+
+export default Router
