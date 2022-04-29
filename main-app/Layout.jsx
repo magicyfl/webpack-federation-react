@@ -1,77 +1,112 @@
 import React from 'react';
-import { Layout, Select, Menu } from 'antd';
+import { Layout, Select, Menu, Avatar } from 'antd';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import 'antd/dist/antd.css';
+import './index.css';
 
 const { Header, Sider, Content, Footer } = Layout;
+
+const baseMenus = [
+	{ key: 'shaingCenter', name: 'Shaing Center', route: 'shaing' },
+	{ key: 'securityMontoring', name: 'Security Montoring', route: 'security' },
+	{ key: 'settings', name: 'Settings', route: 'settings' },
+];
 
 const data = [
 	[],
 	[
-		{  key: "1", name: 'Peronal options1' },
-		{  key: "2", name: 'Peronal options2' },
-		{  key: "3", name: 'Peronal options3' },
-	], 
-	[
-		{  key: "1", name: 'ACME Company options1' },
-		{  key: "2", name: 'ACME Company options2' },
-		{  key: "3", name: 'ACME Company options3' },
+		{ key: 'recent', name: 'Recent', route: 'recent' },
+		{ key: 'applications', name: 'Applications', route: 'applications' },
+		...baseMenus,
 	],
 	[
-		{  key: "1", name: 'Jump Crypto options1' },
-		{  key: "2", name: 'Jump Crypto options2' },
-		{  key: "3", name: 'Jump Crypto options3' },
+		{  key: 'devices', name: 'Devices', route: 'devices' },
+		{  key: 'valut', name: 'ACME Valut', route: 'valut' },
+		...baseMenus,
+		
+	],
+	[
+		{  key: 'starred', name: 'Starred', route: 'starred' },
+		{  key: 'items', name: 'All Items', route: 'items' },
+		...baseMenus,
 	]
-]
+];
 
 export default function BaseLayout(props) {
-
+	const store = useSelector(data => data);
+	const dispatch = useDispatch();
 	const [activeKey, setActiveKey] = React.useState("1");
-	const [menuActiveKey, setMenuActiveKey] = React.useState("1");
+	const history = useNavigate();
 
 	function onSelect(value) {
 		setActiveKey(value);
+
+		const menu = data[value][0];
+
+		dispatch({
+			type: 'CHNAGE_MENU',
+			activeKey: menu.key,
+		});
+
+		history(menu.route);
 	}
 
 	function onMenuSelect(value) {
-		setMenuActiveKey(value.key);
+		const menu = data[activeKey].find((item) => {
+			return item.key === value.key;
+		});
+
+		dispatch({
+			type: 'CHNAGE_MENU',
+			activeKey: menu.key,
+		});
+
+		history(menu.route);
 	}
 
+	React.useEffect(() => {
+		history(store.menus.activeKey);
+	}, []);
+
 	return (
-		<Layout>
-			<Header>
-				<Select
-					onSelect={onSelect}
-					style={{ width: '240px' }}
-					defaultValue="1"
+		<Layout style={{ height: "100vh" }}>
+			<Sider theme="light">
+				<Menu
+					style={{ height: "100%" }}
+					mode="inline"
+					onSelect={onMenuSelect}
+					selectedKeys={[store.menus.activeKey]}
 				>
-					<Select.Option key="1">Peronal</Select.Option>
-					<Select.Option key="2">ACME Company</Select.Option>
-					<Select.Option key="3">Jump Crypto</Select.Option>
-				</Select>
-			</Header>
-			<Layout>
-				<Sider theme="light">
-					<Menu
-						onSelect={onMenuSelect}
-					>
-						{data[activeKey].map((item) => {
-							return (
-								<Menu.Item key={item.key}>{item.name}</Menu.Item>
-							)
-						})}
-					</Menu>
-				</Sider>
-				<Content>
-					{React.Children.map(props.children, (child) => {
-						return React.cloneElement(child, {
-							...child.porps,
-							activeKey,
-							menuActiveKey,
-						});
+					{data[activeKey].map((item) => {
+						return (
+							<Menu.Item key={item.key}>{item.name}</Menu.Item>
+						)
 					})}
+				</Menu>
+			</Sider>
+			<Layout>
+				<Header style={{ background: '#fff' }}>
+					<div className="header">
+						<Select
+							onSelect={onSelect}
+							style={{ width: "240px" }}
+							defaultValue="1"
+						>
+							<Select.Option key="1">Peronal</Select.Option>
+							<Select.Option key="2">ACME Company</Select.Option>
+							<Select.Option key="3">Jump Crypto</Select.Option>
+						</Select>
+						<Avatar style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }} size="large" gap={8}>
+							Lucy
+						</Avatar>
+					</div>
+				</Header>
+				<Content>
+					<Outlet />
 				</Content>
+				<Footer style={{ background: '#fff' }}>(main-app)Footer</Footer>
 			</Layout>
-			<Footer>Footer</Footer>
 		</Layout>
 	)
 }

@@ -1,75 +1,64 @@
 import React from 'react';
-import BaseLayout from './Layout';
-// import SdpPage1 from 'sdp-client/Page1';
-// import SdpPage2 from 'sdp-client/Page2';
-// import SdpPage3 from 'sdp-client/Page3';
-// import PwmPage1 from 'pwm-client/Page1';
-// import PwmPage2 from 'pwm-client/Page2';
-// import PwmPage3 from 'pwm-client/Page3';
+import { HashRouter, Route, Routes } from 'react-router-dom' ;
+import { Provider } from 'react-redux';
+import Layout from './Layout';
 
-const SdpPage1 = React.lazy(() => import('sdp-client/Page1'));
-const SdpPage2 = React.lazy(() => import('sdp-client/Page2'));
-const SdpPage3 = React.lazy(() => import('sdp-client/Page3'));
-const PwmPage1 = React.lazy(() => import('pwm-client/Page1'));
-const PwmPage2 = React.lazy(() => import('pwm-client/Page2'));
-const PwmPage3 = React.lazy(() => import('pwm-client/Page3'));
+// main-app
+import SecurityMontoring  from './SecurityMontoring';
+import Settings from './Settings';
+import ShaingCenter from './ShaingCenter';
+import store from './Store';
 
-function LoadCompoent(props) {
-  const { activeKey, menuActiveKey } = props;
+// pwm-client
+const Recent = React.lazy(() => import('pwm-client/Recent'));
+const Devices = React.lazy(() => import('pwm-client/Devices'));
+const Valut = React.lazy(() => import('pwm-client/Valut'));
 
 
+// sdp-client
+const Applications = React.lazy(() => import('sdp-client/Applications'));
+const Starred = React.lazy(() => import('sdp-client/Starred'));
+const Items = React.lazy(() => import('sdp-client/Items'));
 
-  if (activeKey === "1") {
-    if (menuActiveKey === "1") {
-      return (
-        <React.Suspense fallback="loading">
-          <SdpPage1 />
-        </React.Suspense>
-      );
-    } else if (menuActiveKey === "2") {
-      return (
-        <React.Suspense fallback="loading">
-          <SdpPage2 />
-        </React.Suspense>
-      );
-    } else if (menuActiveKey === "3") {
-      return (
-        <React.Suspense fallback="loading">
-          <SdpPage3 />
-        </React.Suspense>
-      );
-    }
-  } else if (activeKey === "2") {
-    if (menuActiveKey === "1") {
-      return (
-        <React.Suspense fallback="loading">
-          <PwmPage1 />
-        </React.Suspense>
-      );
-    } else if (menuActiveKey === "2") {
-      return (
-        <React.Suspense fallback="loading">
-          <PwmPage2 />
-        </React.Suspense>
-      );
-    } else if (menuActiveKey === "3") {
-      return (
-        <React.Suspense fallback="loading">
-          <PwmPage3 />
-        </React.Suspense>
-      );
-    }
-  }
 
-  return <div>404</div>;
+function LoadCompoent(Component) {
+  return (
+    <React.Suspense fallback="loading">
+      <Component />
+    </React.Suspense>
+  )
 }
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <BaseLayout>
-        <LoadCompoent />
-      </BaseLayout>
-    );
-  }
+function NotFound() {
+  return (
+    <div>404</div>
+  );
 }
+
+function Router() {
+  return (
+    <Provider store={store}>
+      <HashRouter>
+        <Routes>
+          <Route element={<Layout />} >
+            <Route path="/" element={<NotFound />} />
+            {/* main-app */}
+            <Route path="/shaing" element={LoadCompoent(ShaingCenter)} />
+            <Route path="/security" element={LoadCompoent(SecurityMontoring)} />
+            <Route path="/settings" element={LoadCompoent(Settings)} />
+            {/* pwm-client */}
+            <Route path="/recent" element={LoadCompoent(Recent)} />
+            <Route path="/devices" element={LoadCompoent(Devices)} />
+            <Route path="/valut" element={LoadCompoent(Valut)} />
+            {/* spd-client */}
+            <Route path="/applications" element={LoadCompoent(Applications)} />
+            <Route path="/starred" element={LoadCompoent(Starred)} />
+            <Route path="/items" element={LoadCompoent(Items)} />
+          </Route>
+        </Routes>
+      </HashRouter>
+    </Provider>
+  );
+}
+
+export default Router

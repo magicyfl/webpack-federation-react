@@ -47,6 +47,28 @@ module.exports = new Promise((resolve, reject) => {
 	}, "sdp_client");
 }).then(() => (sdp_client));
 
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = ReactDOM;
+
 /***/ })
 
 /******/ 	});
@@ -244,55 +266,55 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	/* webpack/runtime/remotes loading */
 /******/ 	(() => {
 /******/ 		var chunkMapping = {
-/******/ 			"webpack_container_remote_sdp-client_Page1": [
-/******/ 				"webpack/container/remote/sdp-client/Page1"
+/******/ 			"webpack_container_remote_pwm-client_Recent": [
+/******/ 				"webpack/container/remote/pwm-client/Recent"
 /******/ 			],
-/******/ 			"webpack_container_remote_sdp-client_Page2": [
-/******/ 				"webpack/container/remote/sdp-client/Page2"
+/******/ 			"webpack_container_remote_pwm-client_Devices": [
+/******/ 				"webpack/container/remote/pwm-client/Devices"
 /******/ 			],
-/******/ 			"webpack_container_remote_sdp-client_Page3": [
-/******/ 				"webpack/container/remote/sdp-client/Page3"
+/******/ 			"webpack_container_remote_pwm-client_Valut": [
+/******/ 				"webpack/container/remote/pwm-client/Valut"
 /******/ 			],
-/******/ 			"webpack_container_remote_pwm-client_Page1": [
-/******/ 				"webpack/container/remote/pwm-client/Page1"
+/******/ 			"webpack_container_remote_sdp-client_Applications": [
+/******/ 				"webpack/container/remote/sdp-client/Applications"
 /******/ 			],
-/******/ 			"webpack_container_remote_pwm-client_Page2": [
-/******/ 				"webpack/container/remote/pwm-client/Page2"
+/******/ 			"webpack_container_remote_sdp-client_Starred": [
+/******/ 				"webpack/container/remote/sdp-client/Starred"
 /******/ 			],
-/******/ 			"webpack_container_remote_pwm-client_Page3": [
-/******/ 				"webpack/container/remote/pwm-client/Page3"
+/******/ 			"webpack_container_remote_sdp-client_Items": [
+/******/ 				"webpack/container/remote/sdp-client/Items"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
-/******/ 			"webpack/container/remote/sdp-client/Page1": [
+/******/ 			"webpack/container/remote/pwm-client/Recent": [
 /******/ 				"default",
-/******/ 				"./Page1",
-/******/ 				"webpack/container/reference/sdp-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/sdp-client/Page2": [
-/******/ 				"default",
-/******/ 				"./Page2",
-/******/ 				"webpack/container/reference/sdp-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/sdp-client/Page3": [
-/******/ 				"default",
-/******/ 				"./Page3",
-/******/ 				"webpack/container/reference/sdp-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/pwm-client/Page1": [
-/******/ 				"default",
-/******/ 				"./Page1",
+/******/ 				"./Recent",
 /******/ 				"webpack/container/reference/pwm-client"
 /******/ 			],
-/******/ 			"webpack/container/remote/pwm-client/Page2": [
+/******/ 			"webpack/container/remote/pwm-client/Devices": [
 /******/ 				"default",
-/******/ 				"./Page2",
+/******/ 				"./Devices",
 /******/ 				"webpack/container/reference/pwm-client"
 /******/ 			],
-/******/ 			"webpack/container/remote/pwm-client/Page3": [
+/******/ 			"webpack/container/remote/pwm-client/Valut": [
 /******/ 				"default",
-/******/ 				"./Page3",
+/******/ 				"./Valut",
 /******/ 				"webpack/container/reference/pwm-client"
+/******/ 			],
+/******/ 			"webpack/container/remote/sdp-client/Applications": [
+/******/ 				"default",
+/******/ 				"./Applications",
+/******/ 				"webpack/container/reference/sdp-client"
+/******/ 			],
+/******/ 			"webpack/container/remote/sdp-client/Starred": [
+/******/ 				"default",
+/******/ 				"./Starred",
+/******/ 				"webpack/container/reference/sdp-client"
+/******/ 			],
+/******/ 			"webpack/container/remote/sdp-client/Items": [
+/******/ 				"default",
+/******/ 				"./Items",
+/******/ 				"webpack/container/reference/sdp-client"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.remotes = (chunkId, promises) => {
@@ -379,8 +401,8 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
-/******/ 					initExternal("webpack/container/reference/sdp-client");
 /******/ 					initExternal("webpack/container/reference/pwm-client");
+/******/ 					initExternal("webpack/container/reference/sdp-client");
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -414,7 +436,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^webpack_container_remote_(pwm\-client_Page[123]|sdp\-client_Page[123])$/.test(chunkId)) {
+/******/ 						if(!/^webpack_container_remote_(pwm\-client_(Devices|Recent|Valut)|sdp\-client_(Applications|Items|Starred))$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -491,7 +513,7 @@ var __webpack_exports__ = {};
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_antd_es_layout_index_js-node_modules_antd_es_menu_index_js-node_modules_-cd3aa7"), __webpack_require__.e("bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap.js */ "./bootstrap.js"));
+Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_antd_es_avatar_index_js-node_modules_antd_es_layout_index_js-node-227bb5"), __webpack_require__.e("bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap.js */ "./bootstrap.js"));
 })();
 
 /******/ })()

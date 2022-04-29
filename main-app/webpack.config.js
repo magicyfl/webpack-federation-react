@@ -1,36 +1,14 @@
 const { ModuleFederationPlugin } = require('webpack').container;
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const webpackMerge = require('webpack-merge');
+const webpackBaseConfig = require('./config').webpackBaseConfig;
 const path = require('path');
-module.exports = {
-  entry: './index.js',
-  mode: 'development',
-  devtool: 'hidden-source-map',
+
+module.exports = webpackMerge.merge(webpackBaseConfig, {
   output: {
-    publicPath: 'http://localhost:3002/',
-    clean: true,
-  },
-  resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css', '.scss', '.jpg', 'jpeg', 'png'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(jpg|png|gif|jpeg)$/,
-        loader: 'url-loader',
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        options: {
-          presets: ['@babel/preset-react'],
-        },
-      },
-    ],
+    publicPath: 'http://localhost:3002/'
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -40,8 +18,11 @@ module.exports = {
         'sdp-client': 'sdp_client@http://localhost:3004/remoteEntry.js',
       },
     }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
+    new CopyPlugin({
+      patterns: [
+        { from: "plugins", to: path.join(process.cwd(), './dist')  },
+      ],
     }),
-  ],
-};
+  ]
+});
+
