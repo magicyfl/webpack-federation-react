@@ -257,54 +257,22 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	/* webpack/runtime/remotes loading */
 /******/ 	(() => {
 /******/ 		var chunkMapping = {
-/******/ 			"webpack_container_remote_pwm-client_Recent": [
-/******/ 				"webpack/container/remote/pwm-client/Recent"
+/******/ 			"webpack_container_remote_pwm-client_Router": [
+/******/ 				"webpack/container/remote/pwm-client/Router"
 /******/ 			],
-/******/ 			"webpack_container_remote_pwm-client_Devices": [
-/******/ 				"webpack/container/remote/pwm-client/Devices"
-/******/ 			],
-/******/ 			"webpack_container_remote_pwm-client_Valut": [
-/******/ 				"webpack/container/remote/pwm-client/Valut"
-/******/ 			],
-/******/ 			"webpack_container_remote_sdp-client_Applications": [
-/******/ 				"webpack/container/remote/sdp-client/Applications"
-/******/ 			],
-/******/ 			"webpack_container_remote_sdp-client_Starred": [
-/******/ 				"webpack/container/remote/sdp-client/Starred"
-/******/ 			],
-/******/ 			"webpack_container_remote_sdp-client_Items": [
-/******/ 				"webpack/container/remote/sdp-client/Items"
+/******/ 			"webpack_container_remote_sdp-client_Router": [
+/******/ 				"webpack/container/remote/sdp-client/Router"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
-/******/ 			"webpack/container/remote/pwm-client/Recent": [
+/******/ 			"webpack/container/remote/pwm-client/Router": [
 /******/ 				"default",
-/******/ 				"./Recent",
+/******/ 				"./Router",
 /******/ 				"webpack/container/reference/pwm-client"
 /******/ 			],
-/******/ 			"webpack/container/remote/pwm-client/Devices": [
+/******/ 			"webpack/container/remote/sdp-client/Router": [
 /******/ 				"default",
-/******/ 				"./Devices",
-/******/ 				"webpack/container/reference/pwm-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/pwm-client/Valut": [
-/******/ 				"default",
-/******/ 				"./Valut",
-/******/ 				"webpack/container/reference/pwm-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/sdp-client/Applications": [
-/******/ 				"default",
-/******/ 				"./Applications",
-/******/ 				"webpack/container/reference/sdp-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/sdp-client/Starred": [
-/******/ 				"default",
-/******/ 				"./Starred",
-/******/ 				"webpack/container/reference/sdp-client"
-/******/ 			],
-/******/ 			"webpack/container/remote/sdp-client/Items": [
-/******/ 				"default",
-/******/ 				"./Items",
+/******/ 				"./Router",
 /******/ 				"webpack/container/reference/sdp-client"
 /******/ 			]
 /******/ 		};
@@ -624,7 +592,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^(default\-webpack_sharing_consume_default_react(\-dom_react\-dom|\-router_react\-router|_react)|webpack_container_remote_(pwm\-client_(Devices|Recent|Valut)|sdp\-client_(Applications|Items|Starred)))$/.test(chunkId)) {
+/******/ 						if(!/^(default\-webpack_sharing_consume_default_react(\-dom_react\-dom|\-router_react\-router|_react)|webpack_container_remote_(pwm|sdp)\-client_Router)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

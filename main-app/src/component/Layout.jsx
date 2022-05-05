@@ -69,6 +69,12 @@ export default function BaseLayout(props) {
 		history(store.menus.activeKey);
 	}, []);
 
+	React.useEffect(() => {
+		return () => {
+			console.log('我被销毁了');
+		}
+	}, []);
+
 	return (
 		<Layout style={{ height: "100vh" }}>
 			<Sider theme="light">
@@ -103,7 +109,7 @@ export default function BaseLayout(props) {
 					</div>
 				</Header>
 				<Content>
-					<Outlet />
+					{props.children}
 				</Content>
 				<Footer style={{ background: '#fff' }}>(main-app)Footer</Footer>
 			</Layout>

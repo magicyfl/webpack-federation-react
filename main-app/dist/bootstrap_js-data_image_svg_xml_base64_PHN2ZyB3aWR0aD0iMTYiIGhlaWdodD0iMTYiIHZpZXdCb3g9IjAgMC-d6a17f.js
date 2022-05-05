@@ -32,13 +32,9 @@ __webpack_require__.r(__webpack_exports__);
 
  // pwm-client
 
-const Recent = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_pwm-client_Recent").then(__webpack_require__.t.bind(__webpack_require__, /*! pwm-client/Recent */ "webpack/container/remote/pwm-client/Recent", 23)));
-const Devices = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_pwm-client_Devices").then(__webpack_require__.t.bind(__webpack_require__, /*! pwm-client/Devices */ "webpack/container/remote/pwm-client/Devices", 23)));
-const Valut = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_pwm-client_Valut").then(__webpack_require__.t.bind(__webpack_require__, /*! pwm-client/Valut */ "webpack/container/remote/pwm-client/Valut", 23))); // sdp-client
+const PwmClientRouter = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_pwm-client_Router").then(__webpack_require__.t.bind(__webpack_require__, /*! pwm-client/Router */ "webpack/container/remote/pwm-client/Router", 23))); // sdp-client
 
-const Applications = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_sdp-client_Applications").then(__webpack_require__.t.bind(__webpack_require__, /*! sdp-client/Applications */ "webpack/container/remote/sdp-client/Applications", 23)));
-const Starred = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_sdp-client_Starred").then(__webpack_require__.t.bind(__webpack_require__, /*! sdp-client/Starred */ "webpack/container/remote/sdp-client/Starred", 23)));
-const Items = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_sdp-client_Items").then(__webpack_require__.t.bind(__webpack_require__, /*! sdp-client/Items */ "webpack/container/remote/sdp-client/Items", 23)));
+const SdpClientRouter = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().lazy(() => __webpack_require__.e(/*! import() */ "webpack_container_remote_sdp-client_Router").then(__webpack_require__.t.bind(__webpack_require__, /*! sdp-client/Router */ "webpack/container/remote/sdp-client/Router", 23)));
 
 function LoadCompoent(Component) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Suspense), {
@@ -53,9 +49,11 @@ function NotFound() {
 function Router() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
     store: _Store__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null)
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Suspense), {
+    fallback: "loading"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PwmClientRouter, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Suspense), {
+    fallback: "loading"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SdpClientRouter, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NotFound, null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
@@ -67,24 +65,6 @@ function Router() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/settings",
     element: LoadCompoent(_pages_Settings__WEBPACK_IMPORTED_MODULE_5__["default"])
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    path: "/recent",
-    element: LoadCompoent(Recent)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    path: "/devices",
-    element: LoadCompoent(Devices)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    path: "/valut",
-    element: LoadCompoent(Valut)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    path: "/applications",
-    element: LoadCompoent(Applications)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    path: "/starred",
-    element: LoadCompoent(Starred)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-    path: "/items",
-    element: LoadCompoent(Items)
   })))));
 }
 
@@ -269,6 +249,11 @@ function BaseLayout(props) {
   react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(() => {
     history(store.menus.activeKey);
   }, []);
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(() => {
+    return () => {
+      console.log('我被销毁了');
+    };
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(antd__WEBPACK_IMPORTED_MODULE_1__.Layout, {
     style: {
       height: "100vh"
@@ -311,7 +296,7 @@ function BaseLayout(props) {
     },
     size: "large",
     gap: 8
-  }, "Lucy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Content, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Outlet, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Footer, {
+  }, "Lucy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Content, null, props.children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Footer, {
     style: {
       background: '#fff'
     }

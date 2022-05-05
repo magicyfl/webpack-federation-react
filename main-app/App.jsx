@@ -10,15 +10,10 @@ import ShaingCenter from '@/pages/ShaingCenter';
 import store from '@/Store';
 
 // pwm-client
-const Recent = React.lazy(() => import('pwm-client/Recent'));
-const Devices = React.lazy(() => import('pwm-client/Devices'));
-const Valut = React.lazy(() => import('pwm-client/Valut'));
-
+const PwmClientRouter = React.lazy(() => import('pwm-client/Router'));
 
 // sdp-client
-const Applications = React.lazy(() => import('sdp-client/Applications'));
-const Starred = React.lazy(() => import('sdp-client/Starred'));
-const Items = React.lazy(() => import('sdp-client/Items'));
+const SdpClientRouter = React.lazy(() => import('sdp-client/Router'));
 
 
 function LoadCompoent(Component) {
@@ -39,23 +34,23 @@ function Router() {
   return (
     <Provider store={store}>
       <HashRouter>
-        <Routes>
-          <Route element={<Layout />} >
+        <Layout>
+          {/* pwm */}
+          <React.Suspense fallback="loading">
+            <PwmClientRouter />
+          </React.Suspense>
+          {/* sdp */}
+          <React.Suspense fallback="loading">
+            <SdpClientRouter />
+          </React.Suspense>
+          <Routes>
             <Route path="/" element={<NotFound />} />
             {/* main-app */}
             <Route path="/shaing" element={LoadCompoent(ShaingCenter)} />
             <Route path="/security" element={LoadCompoent(SecurityMontoring)} />
             <Route path="/settings" element={LoadCompoent(Settings)} />
-            {/* pwm-client */}
-            <Route path="/recent" element={LoadCompoent(Recent)} />
-            <Route path="/devices" element={LoadCompoent(Devices)} />
-            <Route path="/valut" element={LoadCompoent(Valut)} />
-            {/* spd-client */}
-            <Route path="/applications" element={LoadCompoent(Applications)} />
-            <Route path="/starred" element={LoadCompoent(Starred)} />
-            <Route path="/items" element={LoadCompoent(Items)} />
-          </Route>
-        </Routes>
+          </Routes>
+        </Layout>
       </HashRouter>
     </Provider>
   );
