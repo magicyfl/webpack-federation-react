@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom' ;
 import { Provider } from "react-redux";
-import store from './src/store';
-import Layout from './src/Layout';
-import Applications from './src/Applications';
-import Starred from './src/Starred';
-import Items from './src/Items';
+import store from '@/store';
+import Layout from '@/component/Layout';
+import Applications from '@/pages/Applications';
+import Starred from '@/pages/Starred';
+import Items from '@/pages/Items';
 
 function LoadCompoent(Component) {
   return (
@@ -20,8 +20,6 @@ function NotFound() {
     <div>404</div>
   );
 }
-
-console.log(store, 'storestorestorestorestore');
 
 function Router() {
   return (

@@ -1,13 +1,13 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom' ;
 import { Provider } from 'react-redux';
-import Layout from './Layout';
+import Layout from '@/component/Layout';
 
 // main-app
-import SecurityMontoring  from './SecurityMontoring';
-import Settings from './Settings';
-import ShaingCenter from './ShaingCenter';
-import store from './Store';
+import SecurityMontoring  from '@/pages/SecurityMontoring';
+import Settings from '@/pages/Settings';
+import ShaingCenter from '@/pages/ShaingCenter';
+import store from '@/Store';
 
 // pwm-client
 const Recent = React.lazy(() => import('pwm-client/Recent'));

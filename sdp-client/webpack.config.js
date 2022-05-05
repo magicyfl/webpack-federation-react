@@ -4,20 +4,41 @@ const webpack = require('webpack');
 const path = require('path');
 const webpackMerge = require('webpack-merge');
 const webpackBaseConfig = require('../main-app/config').webpackBaseConfig;
+const deps = require('./package.json').dependencies;
 
 module.exports = webpackMerge.merge(webpackBaseConfig, {
   output: {
     publicPath: 'http://localhost:3004/',
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: 'sdp_client',
-      filename: 'remoteEntry.js',
+      filename: 'remoteSdp.js',
       exposes: {
-        './Applications': './src/Applications.jsx',
         './Starred': './src/expose/Starred.jsx',
-        './Items': './src/Items.jsx',
+        './Applications': './src/pages/Applications.jsx',
+        './Items': './src/pages/Items.jsx',
       },
+      shared: [
+        {
+          ...deps,
+          react: {
+            // eager: true,
+            singleton: true,
+            requiredVersion: deps.react,
+          },
+          'react-dom': {
+            // eager: true,
+            singleton: true,
+            requiredVersion: deps['react-dom'],
+          },
+        },
+      ],
     }),
   ]
 });
