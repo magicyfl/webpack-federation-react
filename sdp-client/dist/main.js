@@ -7,7 +7,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_antd_dist_antd_css"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-redux-b550e1"), __webpack_require__.e("bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap.js */ "./bootstrap.js"));
+Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_react-redux_es_index_js-node_modules_react-router-dom_index_js-no-981d47"), __webpack_require__.e("default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-dom_r-3ee88f"), __webpack_require__.e("bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap.js */ "./bootstrap.js"));
 
 /***/ })
 
@@ -215,13 +215,9 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
-/******/ 					register("antd", "4.20.1", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_index_js-node_modules_moment_locale_af_js-node_modules_mo-f359bd"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("node_modules_moment_locale_sync_recursive_-_fdac0")]).then(() => (() => (__webpack_require__(/*! ./node_modules/antd/es/index.js */ "./node_modules/antd/es/index.js"))))));
-/******/ 					register("react-dom", "18.1.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-dom/index.js */ "./node_modules/react-dom/index.js"))))));
-/******/ 					register("react-redux", "8.0.1", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-redux_es_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-redux/es/index.js */ "./node_modules/react-redux/es/index.js"))))));
-/******/ 					register("react-router-dom", "6.3.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-router_react-router"), __webpack_require__.e("node_modules_react-router-dom_index_js-_412d0")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-router-dom/index.js */ "./node_modules/react-router-dom/index.js"))))));
-/******/ 					register("react-router", "6.3.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("defaultVendors-node_modules_react-router_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-router/index.js */ "./node_modules/react-router/index.js"))))));
+/******/ 					register("antd", "4.20.1", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_index_js-node_modules_moment_locale_af_js-node_modules_mo-f359bd"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom-webpack_sharing_consume_default_r-45dbcc"), __webpack_require__.e("node_modules_moment_locale_sync_recursive_-node_modules_react-is_index_js-node_modules_babel_-638209")]).then(() => (() => (__webpack_require__(/*! ./node_modules/antd/es/index.js */ "./node_modules/antd/es/index.js"))))));
+/******/ 					register("react-dom", "18.1.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-dom/index.js */ "./node_modules/react-dom/index.js"))))));
 /******/ 					register("react", "18.1.0", () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/react/index.js */ "./node_modules/react/index.js"))))));
-/******/ 					register("redux", "4.2.0", () => (__webpack_require__.e("defaultVendors-node_modules_redux_es_redux_js").then(() => (() => (__webpack_require__(/*! ./node_modules/redux/es/redux.js */ "./node_modules/redux/es/redux.js"))))));
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -370,30 +366,42 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 		});
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
-/******/ 			"webpack/sharing/consume/default/react/react": () => (loadSingletonVersionCheckFallback("default", "react", [4,18,1,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/react-dom/react-dom": () => (loadSingletonVersionCheckFallback("default", "react-dom", [4,18,1,0], () => (__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js").then(() => (() => (__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/react-router-dom/react-router-dom": () => (loadStrictVersionCheckFallback("default", "react-router-dom", [4,6,3,0], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react-router_react-router"), __webpack_require__.e("node_modules_react-router-dom_index_js-_412d1")]).then(() => (() => (__webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/react-redux/react-redux": () => (loadStrictVersionCheckFallback("default", "react-redux", [4,8,0,1], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-redux_es_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/redux/redux": () => (loadStrictVersionCheckFallback("default", "redux", [4,4,2,0], () => (__webpack_require__.e("defaultVendors-node_modules_redux_es_redux_js").then(() => (() => (__webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js"))))))),
-/******/ 			"webpack/sharing/consume/default/antd/antd": () => (loadStrictVersionCheckFallback("default", "antd", [4,4,20,1], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_index_js-node_modules_moment_locale_af_js-node_modules_mo-f359bd"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("node_modules_moment_locale_sync_recursive_-_fdac1")]).then(() => (() => (__webpack_require__(/*! antd */ "./node_modules/antd/es/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/react-router/react-router": () => (loadStrictVersionCheckFallback("default", "react-router", [4,6,3,0], () => (__webpack_require__.e("defaultVendors-node_modules_react-router_index_js").then(() => (() => (__webpack_require__(/*! react-router */ "./node_modules/react-router/index.js")))))))
+/******/ 			"webpack/sharing/consume/default/react/react?4c0f": () => (loadSingletonVersionCheckFallback("default", "react", [4,18,1,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?6492": () => (loadSingletonVersionCheckFallback("default", "react", [0,16,8], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/antd/antd": () => (loadSingletonVersionCheckFallback("default", "antd", [4,4,20,1], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_index_js-node_modules_moment_locale_af_js-node_modules_mo-f359bd"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom-webpack_sharing_consume_default_r-45dbcc"), __webpack_require__.e("node_modules_moment_locale_sync_recursive_")]).then(() => (() => (__webpack_require__(/*! antd */ "./node_modules/antd/es/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react-dom/react-dom?db11": () => (loadSingletonVersionCheckFallback("default", "react-dom", [,[1,18,0],[1,17,0],[1,16,8],1,1], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?1b8b": () => (loadSingletonVersionCheckFallback("default", "react", [,[1,18,0],[1,17,0],[1,16,8],1,1], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?3978": () => (loadSingletonVersionCheckFallback("default", "react", [,[1,18,0,0],[1,17,0,0],[1,16,8,0],1,1], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react-dom/react-dom?1626": () => (loadSingletonVersionCheckFallback("default", "react-dom", [4,18,1,0], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?147b": () => (loadSingletonVersionCheckFallback("default", "react", [0,16,9,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react-dom/react-dom?2320": () => (loadSingletonVersionCheckFallback("default", "react-dom", [0,16,9,0], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?eb70": () => (loadSingletonVersionCheckFallback("default", "react", [0,16,0,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?7ec5": () => (loadSingletonVersionCheckFallback("default", "react", [0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?47c2": () => (loadSingletonVersionCheckFallback("default", "react", [0,16,11,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react/react?7bb1": () => (loadSingletonVersionCheckFallback("default", "react", [1,18,1,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js")))))))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
-/******/ 			"default-webpack_sharing_consume_default_react_react": [
-/******/ 				"webpack/sharing/consume/default/react/react"
+/******/ 			"default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-dom_r-3ee88f": [
+/******/ 				"webpack/sharing/consume/default/react/react?4c0f",
+/******/ 				"webpack/sharing/consume/default/react/react?6492",
+/******/ 				"webpack/sharing/consume/default/antd/antd",
+/******/ 				"webpack/sharing/consume/default/react-dom/react-dom?db11",
+/******/ 				"webpack/sharing/consume/default/react/react?1b8b",
+/******/ 				"webpack/sharing/consume/default/react/react?3978"
 /******/ 			],
-/******/ 			"default-webpack_sharing_consume_default_react-dom_react-dom": [
-/******/ 				"webpack/sharing/consume/default/react-dom/react-dom"
+/******/ 			"bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f": [
+/******/ 				"webpack/sharing/consume/default/react-dom/react-dom?1626"
 /******/ 			],
-/******/ 			"default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-redux-b550e1": [
-/******/ 				"webpack/sharing/consume/default/react-router-dom/react-router-dom",
-/******/ 				"webpack/sharing/consume/default/react-redux/react-redux",
-/******/ 				"webpack/sharing/consume/default/redux/redux",
-/******/ 				"webpack/sharing/consume/default/antd/antd"
+/******/ 			"default-webpack_sharing_consume_default_react-dom_react-dom-webpack_sharing_consume_default_r-45dbcc": [
+/******/ 				"webpack/sharing/consume/default/react/react?147b",
+/******/ 				"webpack/sharing/consume/default/react-dom/react-dom?2320",
+/******/ 				"webpack/sharing/consume/default/react/react?eb70",
+/******/ 				"webpack/sharing/consume/default/react/react?7ec5",
+/******/ 				"webpack/sharing/consume/default/react/react?47c2"
 /******/ 			],
-/******/ 			"default-webpack_sharing_consume_default_react-router_react-router": [
-/******/ 				"webpack/sharing/consume/default/react-router/react-router"
+/******/ 			"webpack_sharing_consume_default_react_react": [
+/******/ 				"webpack/sharing/consume/default/react/react?7bb1"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {
@@ -445,7 +453,7 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^default\-webpack_sharing_consume_default_(react(\-dom_react\-dom|\-router_react\-router|_react)|antd_antd\-webpack_sharing_consume_default_react\-redux\-b550e1)$/.test(chunkId)) {
+/******/ 						if(!/^(default\-webpack_sharing_consume_default_(antd_antd\-webpack_sharing_consume_default_react\-dom_r\-3ee88f|react\-dom_react\-dom\-webpack_sharing_consume_default_r\-45dbcc)|webpack_sharing_consume_default_react_react)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

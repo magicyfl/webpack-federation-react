@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const webpackMerge = require('webpack-merge');
-const webpackBaseConfig = require('../main-app/config').webpackBaseConfig;
-const deps = require('./package.json').dependencies;
+const { webpackBaseConfig, federationShared } = require('../main-app//config');
 
 module.exports = webpackMerge.merge(webpackBaseConfig, {
   output: {
@@ -22,21 +21,7 @@ module.exports = webpackMerge.merge(webpackBaseConfig, {
       exposes: {
         './Router' :'./src/expose/Router.jsx',
       },
-      shared: [
-        {
-          ...deps,
-          react: {
-            // eager: true,
-            singleton: true,
-            requiredVersion: deps.react,
-          },
-          'react-dom': {
-            // eager: true,
-            singleton: true,
-            requiredVersion: deps['react-dom'],
-          },
-        },
-      ],
+      shared: federationShared
     }),
   ]
 });

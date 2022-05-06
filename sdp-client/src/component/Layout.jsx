@@ -23,6 +23,10 @@ export default function BaseLayout(props) {
 		history(menu.route);
 	}
 
+	React.useEffect(() => {
+		history('applications');
+	}, []);
+
 	return (
 		<Layout style={{ height: "100vh" }}>
 			<Sider theme="light">
@@ -30,6 +34,7 @@ export default function BaseLayout(props) {
 					style={{ height: "100%" }}
 					mode="inline"
 					onSelect={onMenuSelect}
+					defaultSelectedKeys={['applications']}
 				>
 					{menus.map((item) => {
 						return (

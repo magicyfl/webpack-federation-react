@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layout, Select, Menu, Avatar } from 'antd';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Layout, Menu, Avatar } from 'antd';
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 
@@ -14,16 +14,16 @@ const menus = [
     {  key: 'valut', name: 'ACME Valut', route: 'valut' },
 ];
 
-export default function BaseLayout(props) {
+function BaseLayout(props) {
 	const { activeKey } = useSelector(data => data.menus);
-	const history = useNavigate();
+	const history = useHistory();
 
 	function onMenuSelect(value) {
 		const menu = menus.find((item) => {
 			return item.key === value.key;
 		});
 
-		history(menu.route);
+		history.push(menu.route);
 	}
 
 	return (
@@ -51,10 +51,12 @@ export default function BaseLayout(props) {
 					</div>
 				</Header>
 				<Content>
-					<Outlet />
+					{props.children}
 				</Content>
 				<Footer style={{ background: '#fff' }}>(PWM)Footer</Footer>
 			</Layout>
 		</Layout>
 	)
 }
+
+export default BaseLayout;
