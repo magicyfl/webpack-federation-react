@@ -262,6 +262,9 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			],
 /******/ 			"webpack_container_remote_sdp-client_Router": [
 /******/ 				"webpack/container/remote/sdp-client/Router"
+/******/ 			],
+/******/ 			"webpack_container_remote_pwm-client_channel": [
+/******/ 				"webpack/container/remote/pwm-client/channel"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
@@ -274,6 +277,11 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 				"default",
 /******/ 				"./Router",
 /******/ 				"webpack/container/reference/sdp-client"
+/******/ 			],
+/******/ 			"webpack/container/remote/pwm-client/channel": [
+/******/ 				"default",
+/******/ 				"./channel",
+/******/ 				"webpack/container/reference/pwm-client"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.remotes = (chunkId, promises) => {
@@ -598,7 +606,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^(webpack_(container_remote_(pwm|sdp)\-client_Router|sharing_consume_default_react_react)|default\-webpack_sharing_consume_default_react\-dom_react\-dom\-webpack_sharing_consume_default_r\-45dbcc)$/.test(chunkId)) {
+/******/ 						if(!/^(webpack_(container_remote_(pwm\-client_(Router|channel)|sdp\-client_Router)|sharing_consume_default_react_react)|default\-webpack_sharing_consume_default_react\-dom_react\-dom\-webpack_sharing_consume_default_r\-45dbcc)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

@@ -7,11 +7,11 @@ import Layout from '@/component/Layout';
 import SecurityMontoring  from '@/pages/SecurityMontoring';
 import Settings from '@/pages/Settings';
 import ShaingCenter from '@/pages/ShaingCenter';
+import Login from '@/pages/Login';
 import store from '@/Store';
 
 // pwm-client
 const PwmClientRouter = React.lazy(() => import('pwm-client/Router'));
-
 // sdp-client
 const SdpClientRouter = React.lazy(() => import('sdp-client/Router'));
 
@@ -31,16 +31,30 @@ function NotFound() {
 }
 
 function Router() {
+  const [hash, setHash] = React.useState(location.hash);
+
+  React.useEffect(() => {
+    window.addEventListener('hashchange', () => {
+      setHash(location.hash);
+    });
+  }, []);
+
+  if (hash.endsWith('login')) {
+    return (
+      <Login />
+    )
+  }
+
   return (
     <Provider store={store}>
       <Layout>
         <HashRouter>
           <Routes>
-            <Route path="/" element={<NotFound />} />
             {/* main-app */}
-            <Route path="/shaing" element={LoadCompoent(ShaingCenter)} />
-            <Route path="/security" element={LoadCompoent(SecurityMontoring)} />
-            <Route path="/settings" element={LoadCompoent(Settings)} />
+            <Route path="/shaing" element={<ShaingCenter />} />
+            <Route path="/security" element={<SecurityMontoring />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/" element={<NotFound />} />
           </Routes>
         </HashRouter>
         {/* pwm */}
