@@ -37,7 +37,11 @@ export default function BaseLayout(props) {
 	const store = useSelector(data => data);
 	const dispatch = useDispatch();
 	const [activeKey, setActiveKey] = React.useState("1");
-	const history = useNavigate();
+	// const history = useNavigate();
+
+	function history(route) {
+		window.location.hash = route;
+	}
 
 	function onSelect(value) {
 		setActiveKey(value);
@@ -66,7 +70,7 @@ export default function BaseLayout(props) {
 	}
 
 	React.useEffect(() => {
-		history(store.menus.activeKey);
+		// history(store.menus.activeKey);
 	}, []);
 
 	React.useEffect(() => {

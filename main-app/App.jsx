@@ -33,16 +33,8 @@ function NotFound() {
 function Router() {
   return (
     <Provider store={store}>
-      <HashRouter>
-        <Layout>
-          {/* pwm */}
-          <React.Suspense fallback="loading">
-            <PwmClientRouter />
-          </React.Suspense>
-          {/* sdp */}
-          <React.Suspense fallback="loading">
-            <SdpClientRouter />
-          </React.Suspense>
+      <Layout>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<NotFound />} />
             {/* main-app */}
@@ -50,8 +42,16 @@ function Router() {
             <Route path="/security" element={LoadCompoent(SecurityMontoring)} />
             <Route path="/settings" element={LoadCompoent(Settings)} />
           </Routes>
-        </Layout>
-      </HashRouter>
+        </HashRouter>
+        {/* pwm */}
+        <React.Suspense fallback="loading">
+          <PwmClientRouter />
+        </React.Suspense>
+        {/* sdp */}
+        <React.Suspense fallback="loading">
+          <SdpClientRouter />
+        </React.Suspense>
+      </Layout>
     </Provider>
   );
 }

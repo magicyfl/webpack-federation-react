@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const deps = require('./package.json');
 
 module.exports.webpackBaseConfig ={
     entry: './index.js',
@@ -67,3 +68,23 @@ module.exports.webpackBaseConfig ={
       }),
     ]
   };
+
+  module.exports.federationShared = [
+    {
+      antd: {
+        // eager: true,
+        singleton: true,
+        requiredVersion: deps.react,
+      },
+      react: {
+        // eager: true,
+        singleton: true,
+        requiredVersion: deps.react,
+      },
+      'react-dom': {
+        // eager: true,
+        singleton: true,
+        requiredVersion: deps['react-dom'],
+      },
+    },
+  ];
