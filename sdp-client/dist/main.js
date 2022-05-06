@@ -7,7 +7,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_antd_dist_antd_css"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-redux-01942e"), __webpack_require__.e("bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap.js */ "./bootstrap.js"));
+Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_antd_dist_antd_css"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-redux-b550e1"), __webpack_require__.e("bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap.js */ "./bootstrap.js"));
 
 /***/ })
 
@@ -218,7 +218,7 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 					register("antd", "4.20.1", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_index_js-node_modules_moment_locale_af_js-node_modules_mo-f359bd"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("node_modules_moment_locale_sync_recursive_-_fdac0")]).then(() => (() => (__webpack_require__(/*! ./node_modules/antd/es/index.js */ "./node_modules/antd/es/index.js"))))));
 /******/ 					register("react-dom", "18.1.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-dom/index.js */ "./node_modules/react-dom/index.js"))))));
 /******/ 					register("react-redux", "8.0.1", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-redux_es_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-redux/es/index.js */ "./node_modules/react-redux/es/index.js"))))));
-/******/ 					register("react-router-dom", "6.3.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-router_react-router"), __webpack_require__.e("node_modules_react-router-dom_index_js-_412d1")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-router-dom/index.js */ "./node_modules/react-router-dom/index.js"))))));
+/******/ 					register("react-router-dom", "6.3.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react"), __webpack_require__.e("default-webpack_sharing_consume_default_react-router_react-router"), __webpack_require__.e("node_modules_react-router-dom_index_js-_412d0")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-router-dom/index.js */ "./node_modules/react-router-dom/index.js"))))));
 /******/ 					register("react-router", "6.3.0", () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("defaultVendors-node_modules_react-router_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-router/index.js */ "./node_modules/react-router/index.js"))))));
 /******/ 					register("react", "18.1.0", () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/react/index.js */ "./node_modules/react/index.js"))))));
 /******/ 					register("redux", "4.2.0", () => (__webpack_require__.e("defaultVendors-node_modules_redux_es_redux_js").then(() => (() => (__webpack_require__(/*! ./node_modules/redux/es/redux.js */ "./node_modules/redux/es/redux.js"))))));
@@ -372,10 +372,10 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 		var moduleToHandlerMapping = {
 /******/ 			"webpack/sharing/consume/default/react/react": () => (loadSingletonVersionCheckFallback("default", "react", [4,18,1,0], () => (__webpack_require__.e("defaultVendors-node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "./node_modules/react/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/react-dom/react-dom": () => (loadSingletonVersionCheckFallback("default", "react-dom", [4,18,1,0], () => (__webpack_require__.e("defaultVendors-node_modules_react-dom_index_js").then(() => (() => (__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/react-router-dom/react-router-dom": () => (loadStrictVersionCheckFallback("default", "react-router-dom", [4,6,3,0], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react-router_react-router"), __webpack_require__.e("node_modules_react-router-dom_index_js-_412d1")]).then(() => (() => (__webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/react-redux/react-redux": () => (loadStrictVersionCheckFallback("default", "react-redux", [4,8,0,1], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_react-redux_es_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/antd/antd": () => (loadStrictVersionCheckFallback("default", "antd", [4,4,20,1], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_antd_es_index_js-node_modules_moment_locale_af_js-node_modules_mo-f359bd"), __webpack_require__.e("default-webpack_sharing_consume_default_react-dom_react-dom"), __webpack_require__.e("node_modules_moment_locale_sync_recursive_-_fdac1")]).then(() => (() => (__webpack_require__(/*! antd */ "./node_modules/antd/es/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/redux/redux": () => (loadStrictVersionCheckFallback("default", "redux", [4,4,2,0], () => (__webpack_require__.e("defaultVendors-node_modules_redux_es_redux_js").then(() => (() => (__webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js"))))))),
-/******/ 			"webpack/sharing/consume/default/react-router-dom/react-router-dom": () => (loadStrictVersionCheckFallback("default", "react-router-dom", [4,6,3,0], () => (Promise.all([__webpack_require__.e("defaultVendors-node_modules_history_index_js"), __webpack_require__.e("default-webpack_sharing_consume_default_react-router_react-router"), __webpack_require__.e("node_modules_react-router-dom_index_js-_412d0")]).then(() => (() => (__webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/react-router/react-router": () => (loadStrictVersionCheckFallback("default", "react-router", [4,6,3,0], () => (__webpack_require__.e("defaultVendors-node_modules_react-router_index_js").then(() => (() => (__webpack_require__(/*! react-router */ "./node_modules/react-router/index.js")))))))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
@@ -386,13 +386,11 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 			"default-webpack_sharing_consume_default_react-dom_react-dom": [
 /******/ 				"webpack/sharing/consume/default/react-dom/react-dom"
 /******/ 			],
-/******/ 			"default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-redux-01942e": [
+/******/ 			"default-webpack_sharing_consume_default_antd_antd-webpack_sharing_consume_default_react-redux-b550e1": [
+/******/ 				"webpack/sharing/consume/default/react-router-dom/react-router-dom",
 /******/ 				"webpack/sharing/consume/default/react-redux/react-redux",
 /******/ 				"webpack/sharing/consume/default/antd/antd",
 /******/ 				"webpack/sharing/consume/default/redux/redux"
-/******/ 			],
-/******/ 			"bootstrap_js-data_image_svg_xml_base64_PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMC-d6a17f": [
-/******/ 				"webpack/sharing/consume/default/react-router-dom/react-router-dom"
 /******/ 			],
 /******/ 			"default-webpack_sharing_consume_default_react-router_react-router": [
 /******/ 				"webpack/sharing/consume/default/react-router/react-router"
@@ -447,7 +445,7 @@ Promise.all(/*! import() */[__webpack_require__.e("defaultVendors-node_modules_a
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^default\-webpack_sharing_consume_default_(react(\-dom_react\-dom|\-router_react\-router|_react)|antd_antd\-webpack_sharing_consume_default_react\-redux\-01942e)$/.test(chunkId)) {
+/******/ 						if(!/^default\-webpack_sharing_consume_default_(react(\-dom_react\-dom|\-router_react\-router|_react)|antd_antd\-webpack_sharing_consume_default_react\-redux\-b550e1)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

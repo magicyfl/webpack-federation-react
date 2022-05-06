@@ -1,19 +1,9 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom' ;
 import { Provider } from 'react-redux';
-import Layout from './src/Layout';
-import Recent from './src/Recent';
-import Devices from './src/Devices';
-import Valut from './src/Valut';
-import store from './src/store';
-
-function LoadCompoent(Component) {
-  return (
-    <React.Suspense fallback="loading">
-      <Component />
-    </React.Suspense>
-  )
-}
+import RouterConfig from '@/RouterConfig';
+import Layout from '@/component/Layout';
+import store from '@/store';
 
 function NotFound() {
   return (
@@ -21,17 +11,18 @@ function NotFound() {
   );
 }
 
-function Router() {
+function App() {
   return (
       <Provider store={store}>
         <HashRouter>
             <Routes>
               <Route element={<Layout />} >
+                {RouterConfig.map((item) => {
+                  return (
+                    <Route key={item.path} path={item.path} element={item.element} />
+                  );
+                })}
                 <Route path="/" element={<NotFound />} />
-                {/* pwm-client */}
-                <Route path="/recent" element={LoadCompoent(Recent)} />
-                <Route path="/devices" element={LoadCompoent(Devices)} />
-                <Route path="/valut" element={LoadCompoent(Valut)} />
               </Route>
             </Routes>
         </HashRouter>
@@ -39,4 +30,4 @@ function Router() {
   );
 }
 
-export default Router
+export default App

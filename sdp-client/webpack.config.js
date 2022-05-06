@@ -18,11 +18,9 @@ module.exports = webpackMerge.merge(webpackBaseConfig, {
   plugins: [
     new ModuleFederationPlugin({
       name: 'sdp_client',
-      filename: 'remoteSdp.js',
+      filename: 'remote.sdp.js',
       exposes: {
-        './Starred': './src/expose/Starred.jsx',
-        './Applications': './src/pages/Applications.jsx',
-        './Items': './src/pages/Items.jsx',
+        './Router' :'./src/expose/Router.jsx',
       },
       shared: [
         {
