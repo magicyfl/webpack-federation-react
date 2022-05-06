@@ -7,17 +7,17 @@ import store from '@/store';
 function App(props) {
   return (
     <Provider store={store}>
-        <Routes>
-            {RouterConfig.map((item) => {
-                return (
-                    <Route
-                        key={item.path}
-                        path={item.path}
-                        element={item.element}
-                    />
-                );
-            })}
-        </Routes>
+      <Routes>
+        {RouterConfig.map((item) => {
+          return (
+						<Route
+							key={item.path}
+							path={item.path}
+							element={item.element}
+						/>
+					);
+        })}
+      </Routes>
     </Provider>
   );
 }
